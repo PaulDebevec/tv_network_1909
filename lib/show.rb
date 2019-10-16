@@ -9,6 +9,6 @@ class Show
   end
 
   def total_salary
-    @characters[0].salary + @characters[1].salary 
+    @characters[0].salary + @characters[1].salary
   end
 end
