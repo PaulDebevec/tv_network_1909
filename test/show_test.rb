@@ -34,7 +34,7 @@ class ShowTest < Minitest::Test
     assert_equal expected, actual
   end
 
-  def test_show_has_total_salary
+  def test_the_show_can_calculate_total_salary
     expected = 2600000
     actual = @knight_rider.total_salary
     assert_equal expected, actual

@@ -35,13 +35,26 @@ class NetworkTest < Minitest::Test
 
   end
 
-  def test_network_add_show
-    expected = [@parks_and_rec]
-    actual = @nbc.add_show(@parks_and_rec)
-    assert_equal expected, actual
-
+  def test_network_can_add_show
+    @nbc.add_show(@parks_and_rec)
     @nbc.add_show(@knight_rider)
-    assert_equal [@parks_and_rec, @knight_rider]
+
+    assert_equal 2, @nbc.shows.length
+    assert @nbc.shows.include?(@parks_and_rec)
+    assert @nbc.shows.include?(@knight_rider)
   end
 
+  def test_it_can_find_highest_paid_actor
+    @nbc.add_show(@parks_and_rec)
+    @nbc.add_show(@knight_rider)
+    assert_equal "Amy Poehler", @nbc.highest_paid_actor
+  end
+
+  def test_it_can_report_payroll_payroll
+    @nbc.add_show(@parks_and_rec)
+    @nbc.add_show(@knight_rider)
+    expected_value = {"David Hasselhoff" => 1600000, "William Daniels" => 1000000, "Amy Poehler" => 2000000, "Nick Offerman" => 1400000}
+
+    assert_equal expected_value, @nbc.payroll
+  end
 end

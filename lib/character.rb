@@ -9,5 +9,4 @@ class Character
     @salary = profile[:salary]
   end
 
-
 end

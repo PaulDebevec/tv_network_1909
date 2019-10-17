@@ -10,5 +10,6 @@ class Show
 
   def total_salary
     @characters[0].salary + @characters[1].salary
+    # @characters.sum { |character| character.salary }
   end
 end
